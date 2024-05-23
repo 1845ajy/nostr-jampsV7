@@ -193,15 +193,58 @@ u can add your data in the "Create Supplier" Tab which looks as follows
 
 You can input data into the client (while the relay is running) and the input data will show up in the home page as follows 
 
-![IMAGE1](images/Capture1.JPG)
+![IMAGE1](images/Capture5.JPG)
 
-The client is super simple and currenly you can only hardcode the relay. you can find the relay in forumstr\utils\nostr.js 
+You can test is the data is actually in the relay by stopping the relay and refreshing the client. The client is super simple and currenly you can only hardcode the relay. you can find the relay in forumstr\utils\nostr.js 
 
 you can change the relay in the follwing line of code to your desired relay. Just replace the ws://localhost:7002 with the desired relay
 
 ```javascript
 const relay = relayInit("ws://localhost:7002/");
 ```
+The event can be seen as follows in \forumstr2\utils\nostr.js  It is an arrey of an arrey so you can add more data if you like. 
+
+```javascript
+export let createThread = async ({ forumId, title, description, name, phone, email }) => {
+  let event = {
+    pubkey: pk,
+    created_at: Math.floor(Date.now() / 1000),
+    kind: 11,
+    tags: [
+      ["e", forumId],
+      ["title", title],
+      ["description", description],
+      ["name", name],
+      ["phone", phone],
+      ["email", email],
+    ],
+    content: content,
+  };
+
+  event.id = getEventHash(event);
+  event.sig = getSignature(event, sk);
+  await publishEvent(event);
+
+  return event.id;
+};
+
+```
+
+Just make sure to add the new variables to the following object definition.  
+
+```javascript
+let threadDetail = {
+    title: event.tags[1][1],
+    description: event.tags[2][1],
+    name: event.tags[3][1],
+    phone: event.tags[4][1],
+    email: event.tags[5][1],
+    content: event.content,
+    author: event.pubkey,
+  };
+
+```
+This client has portential to be developed to a more advanced supply chain environment. Look in further improvement section on the recomended json structure. 
 
 ## Lisence 
 
