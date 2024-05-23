@@ -20,7 +20,7 @@ Prerequisites you need to have installed in the machine
 - [x] NIP-01: Basic protocol for all supply chain needs
 - [x] NIP-02: Contact list and petnames in identifying supply chain users.
 - [x] NIP-04: Encrypted Direct messaging for supply chain customers and merchants
-- [x] NIP-05: [Mapping Nostr keys to DNS-based internet identifiers](https://github.com/nostr-protocol/nips/blob/master/05.md)
+- [x] NIP-05: Mapping Nostr keys to DNS-based internet identifiers
 - [x] NIP-09: Event deletion
 - [x] NIP-11: NIP-11, specifies a standard for relays to provide metadata to clients. This metadata helps clients understand the capabilities, limitations, and contact details of the relay. By following NIP-11, relays can communicate important information about their services in a structured and consistent way.
 - [x] NIP-12: Generic tag queries
