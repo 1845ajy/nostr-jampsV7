@@ -179,12 +179,16 @@ services:
 ```
 ## Using the Client 
 
-To access the client you have to navigate to http://localhost:3000/ in your web browser. Make sure your port 3000 is open in your system otherwise the client will move onto anoter port. you can have a look if this is the case in the bash console
+To access the client you have to navigate to http://localhost:3000/ in your web browser. Make sure your port 3000 is open in your system otherwise the client will move onto anoter port. you can have a look if this is the case in the bash console or docker
 
-![IMAGE1](images/Capture.JPG)
+![IMAGE1](images/Capture2.JPG)
 
 
 This client is an adaptation of - [forumstr](https://github.com/zantoshi/forumstr)![stars](https://img.shields.io/github/stars/coracle-social/bucket.svg?style=social)
+
+u can add your data in the "Create Supplier" Tab which looks as follows 
+
+![IMAGE1](images/Capture3.JPG)
 
 
 You can input data into the client (while the relay is running) and the input data will show up in the home page as follows 
