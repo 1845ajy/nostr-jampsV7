@@ -1,0 +1,19 @@
+version: "3"
+services:
+  relay:
+    image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
+    env_file:
+      - .env
+    environment:
+      - SERVER_NAME=${DOMAIN?Variable not set}
+    ports:
+      - 7003:8001
+    build:
+      context: .
+      dockerfile: backend.dockerfile
+    command:
+      - bash
+      - -c
+      - |
+        set -e
+        python pyrelay/relay/server.py

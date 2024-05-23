@@ -1,0 +1,38 @@
+version: "3"
+services:
+  nostr-rs-relay:
+    build: ./nostr-rs-relay
+    ports:
+      - "7001:8080"
+
+  rnostr:
+    build: ./rnostr
+    ports:
+      - "7002:8080"
+
+  forumstr2:
+    build: ./forumstr2
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./forumstr2:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run dev
+
+  relay:
+    image: '${DOCKER_IMAGE_BACKEND:-your_backend_image}:${TAG:-latest}'
+    env_file:
+      - ./pyrelay-master/.env
+    environment:
+      - SERVER_NAME=${DOMAIN:-your.domain.com}
+    ports:
+      - "7003:8001"
+    build:
+      context: ./pyrelay-master
+      dockerfile: backend.dockerfile
+    command:
+      - bash
+      - -c
+      - |
+        set -e
+        python pyrelay/relay/server.py
