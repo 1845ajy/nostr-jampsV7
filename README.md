@@ -1,7 +1,7 @@
 
 # Nostr-Jamps-V5
 
-This is the Nsotr relay network project V5 with 3 relays (All dockerised) and a simple client (also Dockerised) interface for supply chain. This project currently contains 3 relays that have been chosen to parse data into relays in a supply chain environment. We have also included a simple client interface so you can input data into the relays and test the relays. 
+This is the Nsotr relay network project V7 with 3 relays (All dockerised) and a simple client (also Dockerised) interface for supply chain. This project currently contains 3 relays that have been chosen to parse data into relays in a supply chain environment. We have also included a simple client interface so you can input data into the relays and test the relays. 
 
 ## Before you start
 
